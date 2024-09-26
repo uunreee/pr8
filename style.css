@@ -1,0 +1,60 @@
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    border: none;
+    background-color: #418443;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 200px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.button:hover {
+    background-color: #538556;
+}
+
+#clickButton.clicked {
+    transform: scale(1.1);
+    background-color: #262626;
+}
+
+#hoverButton:hover {
+    background-color: #ff00bb;
+}
+
+#mouseoutButton {
+    background-color: #1f2ca2;
+}
+
+#mouseoutButton.mouseout {
+    background-color: #f75276;
+}
+
+.button2 {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    border: none;
+    background-color: #6a6a6a;
+    color: white;
+    cursor: pointer;
+    width: 200px;
+    border-radius: 10px;
+}
+
+#movableBlock {
+    width: 50px;
+    height: 50px;
+    background-color: #737373;
+    position: absolute;
+    top: 100px;
+    left: 1250px;
+}

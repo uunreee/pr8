@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1 -->
+    <button class="button" id="clickButton">Нажмите на меня</button>
+    <button class="button" id="hoverButton">Наведите на меня</button>
+    <button class="button" id="mouseoutButton">Уведите курсор</button>
+    <script>
+        document.getElementById('clickButton').addEventListener('click', function() {
+        this.classList.toggle('clicked');
+        this.textContent = this.classList.contains('clicked') ? 'Кликнуто' : 'Нажмите на меня';
+        });
+
+        document.getElementById('hoverButton').addEventListener('mouseover', function() {
+        this.textContent = 'Наведено';
+        });
+
+        document.getElementById('hoverButton').addEventListener('mouseout', function() {
+        this.textContent = 'Наведите на меня';
+        });
+
+        document.getElementById('mouseoutButton').addEventListener('mouseout', function() {
+        this.classList.add('mouseout');
+        this.textContent = 'Курсор уведен';
+        });
+
+        document.getElementById('mouseoutButton').addEventListener('mouseover', function() {
+        this.classList.remove('mouseout');
+        this.textContent = 'Уведите курсор';
+        });
+
+    </script>
+    <!-- 2 -->
+    <button class="button2" id="rButton">Press 'R' for Red</button>
+    <button class="button2" id="gButton">Press 'G' for Green</button>
+    <button class="button2" id="bButton">Press 'B' for Blue</button>
+    <script>
+        document.addEventListener('keydown', function(event) {
+            const key = event.key.toLowerCase();
+            if (key === 'r') {
+                document.getElementById('rButton').style.backgroundColor = 'red';
+            } else if (key === 'g') {
+                document.getElementById('gButton').style.backgroundColor = 'green';
+            } else if (key === 'b') {
+                document.getElementById('bButton').style.backgroundColor = 'blue';
+            }
+        });
+
+        document.addEventListener('keyup', function(event) {
+            const key = event.key.toLowerCase();
+            if (key === 'r') {
+                document.getElementById('rButton').style.backgroundColor = '#ddd';
+            } else if (key === 'g') {
+                document.getElementById('gButton').style.backgroundColor = '#ddd';
+            } else if (key === 'b') {
+                document.getElementById('bButton').style.backgroundColor = '#ddd';
+            }
+        });
+    </script>
+    <!-- 3 -->
+    <div id="movableBlock"></div>
+    <script>
+        let block = document.getElementById('movableBlock');
+
+        document.addEventListener('keydown', function(event) {
+            let key = event.key.toLowerCase();
+            let step = 10;
+            let left = parseInt(block.style.left, 10) || 0;
+            let top = parseInt(block.style.top, 10) || 0;
+
+            switch (key) {
+                case 'w':
+                block.style.top = `${top - step}px`;
+                break;
+                case 's':
+                block.style.top = `${top + step}px`;
+                break;
+                case 'a':
+                block.style.left = `${left - step}px`;
+                break;
+                case 'd':
+                block.style.left = `${left + step}px`;
+                break;
+            }
+        });
+
+    </script>
+</body>
+</html>
